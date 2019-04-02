@@ -1,0 +1,15 @@
+C:\Users\jtorralba\MEGA\Development\CS\Raptor\HelloWorld\bin\Debug\HelloWorld.exe.config
+C:\Users\jtorralba\MEGA\Development\CS\Raptor\HelloWorld\bin\Debug\HelloWorld.exe
+C:\Users\jtorralba\MEGA\Development\CS\Raptor\HelloWorld\bin\Debug\HelloWorld.pdb
+C:\Users\jtorralba\MEGA\Development\CS\Raptor\HelloWorld\obj\Debug\MainWindow.g.cs
+C:\Users\jtorralba\MEGA\Development\CS\Raptor\HelloWorld\obj\Debug\App.g.cs
+C:\Users\jtorralba\MEGA\Development\CS\Raptor\HelloWorld\obj\Debug\HelloWorld_MarkupCompile.cache
+C:\Users\jtorralba\MEGA\Development\CS\Raptor\HelloWorld\obj\Debug\HelloWorld_MarkupCompile.lref
+C:\Users\jtorralba\MEGA\Development\CS\Raptor\HelloWorld\obj\Debug\MainWindow.baml
+C:\Users\jtorralba\MEGA\Development\CS\Raptor\HelloWorld\obj\Debug\HelloWorld.g.resources
+C:\Users\jtorralba\MEGA\Development\CS\Raptor\HelloWorld\obj\Debug\HelloWorld.Properties.Resources.resources
+C:\Users\jtorralba\MEGA\Development\CS\Raptor\HelloWorld\obj\Debug\HelloWorld.csproj.GenerateResource.cache
+C:\Users\jtorralba\MEGA\Development\CS\Raptor\HelloWorld\obj\Debug\HelloWorld.csproj.CoreCompileInputs.cache
+C:\Users\jtorralba\MEGA\Development\CS\Raptor\HelloWorld\obj\Debug\HelloWorld.exe
+C:\Users\jtorralba\MEGA\Development\CS\Raptor\HelloWorld\obj\Debug\HelloWorld.pdb
+C:\Users\jtorralba\MEGA\Development\CS\Raptor\HelloWorld\obj\Debug\HelloWorld.csprojAssemblyReference.cache
