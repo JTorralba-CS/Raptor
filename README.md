@@ -6,7 +6,7 @@ Raptor API implmentation.
 ## Stack:
 
 Windows 10 Professional\
-.Net 4.7.1\
+.NET Framework 4.7.1\
 C#\
 Visual Studio 2017 CE
 
