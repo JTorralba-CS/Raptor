@@ -8,7 +8,7 @@ Raptor API implmentation.
 Windows 10 Professional\
 .NET Framework 4.7.1\
 C#\
-Visual Studio 2017 CE
+Visual Studio 2019 CE
 
 ## Usage:
 
