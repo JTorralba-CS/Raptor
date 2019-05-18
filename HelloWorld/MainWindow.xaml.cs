@@ -13,6 +13,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using TriTech.Common.Interface;
+using TriTech.VisiCAD.DataService;
+
 namespace HelloWorld
 {
     /// <summary>
@@ -42,6 +45,11 @@ namespace HelloWorld
             TextBox.ScrollToEnd();
         }
 
+        private void DEBUG(String Text)
+        {
+            Console.WriteLine("\nDEBUG_________________________________________________\n"+ Text + "\n");
+        }
+
         private void ComboBox_Loaded(object Sender, RoutedEventArgs E)
         {
             ComboBox_List = new List<String>();
@@ -50,26 +58,73 @@ namespace HelloWorld
             ComboBox.ItemsSource = ComboBox_List;
             ComboBox.SelectedIndex = -1;
 
-            Write("Hello user " + Environment.UserName.ToUpper() + ".");
-            Write();
+            Write("Hello " + Environment.UserName.ToUpper() + ".");
 
             ComboBox.Focus();
+
+            try
+            {
+                Wrapper.Initialize();
+                Write("Initialized wrapper class.");
+            }
+            catch (Exception X)
+            {
+                Write("Unable to initialize wrapper class.");
+                DEBUG(X.ToString());
+            }
         }
 
         private void ComboBox_KeyDown(object Sender, KeyEventArgs E)
         {
+            String Command;
+
             var ComboBox = Sender as ComboBox;
             TextBox ComboBox_TextBox = ComboBox.Template.FindName("PART_EditableTextBox", ComboBox) as TextBox;
 
             switch (E.Key)
             {
                 case Key.Enter:
-                    Write(ComboBox_TextBox.Text);
-                    ComboBox_List.Add(ComboBox_TextBox.Text);
+
+                    Command = ComboBox_TextBox.Text.ToUpper();
+
+                    ComboBox_List.Add(Command);
                     ComboBox.Items.Refresh();
                     ComboBox_TextBox.Text = "";
                     ComboBox.SelectedIndex = -1;
+
+                    switch (Command)
+                    {
+                        case "HELP":
+                            try
+                            {
+                                Wrapper.ExecuteCommand("clsAction|ActivateHelp||");
+                                Write("Executed command --> " + Command + ".");
+                            }
+                            catch (Exception X)
+                            {
+                                Write("Unable to execute command --> " + Command + ".");
+                                DEBUG(X.ToString());
+                            }
+                            break;
+
+                        case "QUIT":
+                            try
+                            {
+                                Application.Current.Shutdown();
+                            }
+                            catch (Exception X)
+                            {
+                                Write("Unable to execute command --> " + Command + ".");
+                                Console.WriteLine(X.ToString());
+                            }
+                            break;
+
+                        default:
+                            Write("Invalid command --> " + Command + ".");
+                            break;
+                    }
                     break;
+
                 default:
                     break;
             }
