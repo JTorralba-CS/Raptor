@@ -41,7 +41,7 @@ namespace HelloWorld
 
         private void Write(String Text)
         {
-            TextBox.AppendText(Text + "\n");
+            TextBox.AppendText(Text + "\r");
             TextBox.ScrollToEnd();
         }
 
