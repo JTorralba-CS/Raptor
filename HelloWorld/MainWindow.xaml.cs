@@ -35,14 +35,14 @@ namespace HelloWorld
 
         private void Write()
         {
-            TextBox.AppendText("\n");
-            TextBox.ScrollToEnd();
+            RichTextBox.AppendText("\r");
+            RichTextBox.ScrollToEnd();
         }
 
         private void Write(String Text)
         {
-            TextBox.AppendText(Text + "\r");
-            TextBox.ScrollToEnd();
+            RichTextBox.AppendText(Text + "\r");
+            RichTextBox.ScrollToEnd();
         }
 
         private void DEBUG(String Text)

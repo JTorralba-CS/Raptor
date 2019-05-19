@@ -13,7 +13,7 @@
                 <GradientStop Color="White"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <RichTextBox x:Name="TextBox" Margin="4,0,4,40" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible" IsReadOnly="True" BorderThickness="1" Padding="4" FontSize="14"/>
+        <RichTextBox x:Name="RichTextBox" Margin="4,0,4,40" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible" IsReadOnly="True" BorderThickness="1" Padding="4" FontSize="14"/>
         <ComboBox x:Name="ComboBox" Margin="4,0,4,4" VerticalAlignment="Bottom" VerticalContentAlignment="Center" Padding="4" IsEditable="True" Height="32" FontSize="14" Loaded="ComboBox_Loaded" KeyDown="ComboBox_KeyDown"/>
 
     </Grid>
