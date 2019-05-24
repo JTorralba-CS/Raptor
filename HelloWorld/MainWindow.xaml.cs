@@ -33,17 +33,45 @@ namespace HelloWorld
             InitializeComponent();
         }
 
-        private void Write()
+        public void AppendText(String Text, String Color)
         {
-            RichTextBox.AppendText("\r");
+            BrushConverter BC = new BrushConverter();
+            TextRange TR = new TextRange(RichTextBox.Document.ContentEnd, RichTextBox.Document.ContentEnd);
+            TR.Text = Text + "\r";
+            try
+            {
+                TR.ApplyPropertyValue(TextElement.ForegroundProperty, BC.ConvertFromString(Color));
+            }
+            catch (FormatException) { }
             RichTextBox.ScrollToEnd();
         }
 
         private void Write(String Text)
         {
-            RichTextBox.AppendText(Text + "\r");
-            RichTextBox.ScrollToEnd();
+            AppendText(Text,"Black");
         }
+
+        private void Red(String Text)
+        {
+            AppendText(Text, "Red");
+        }
+
+        private void Green(String Text)
+        {
+            AppendText(Text, "Green");
+        }
+
+        private void Blue(String Text)
+        {
+            AppendText(Text, "Blue");
+        }
+
+        private void Hello()
+        {
+            Write("Hello " + Environment.UserName.ToUpper() + "!");
+        }
+
+        
 
         private void DEBUG(String Text)
         {
@@ -58,18 +86,18 @@ namespace HelloWorld
             ComboBox.ItemsSource = ComboBox_List;
             ComboBox.SelectedIndex = -1;
 
-            Write("Hello " + Environment.UserName.ToUpper() + ".");
-
             ComboBox.Focus();
+
+            Hello();
 
             try
             {
                 Wrapper.Initialize();
-                Write("Initialized wrapper class.");
+                Green("Initialized wrapper class.");
             }
             catch (Exception X)
             {
-                Write("Unable to initialize wrapper class.");
+                Red("Unable to initialize wrapper class.");
                 DEBUG(X.ToString());
             }
         }
@@ -98,11 +126,55 @@ namespace HelloWorld
                             try
                             {
                                 Wrapper.ExecuteCommand("clsAction|ActivateHelp||");
-                                Write("Executed command --> " + Command + ".");
+                                Green("Executed command --> " + Command + ".");
                             }
                             catch (Exception X)
                             {
-                                Write("Unable to execute command --> " + Command + ".");
+                                Red("Unable to execute command --> " + Command + ".");
+                                DEBUG(X.ToString());
+                            }
+                            break;
+
+                        case "RED":
+                            try
+                            {
+                                Red("RED");
+                            }
+                            catch (Exception X)
+                            {
+                                DEBUG(X.ToString());
+                            }
+                            break;
+
+                        case "GREEN":
+                            try
+                            {
+                                Green("GREEN");
+                            }
+                            catch (Exception X)
+                            {
+                                DEBUG(X.ToString());
+                            }
+                            break;
+
+                        case "BLUE":
+                            try
+                            {
+                                Blue("BLUE");
+                            }
+                            catch (Exception X)
+                            {
+                                DEBUG(X.ToString());
+                            }
+                            break;
+
+                        case "HELLO":
+                            try
+                            {
+                                Hello();
+                            }
+                            catch (Exception X)
+                            {
                                 DEBUG(X.ToString());
                             }
                             break;
@@ -111,16 +183,17 @@ namespace HelloWorld
                             try
                             {
                                 Application.Current.Shutdown();
+                                Green("Executed command --> " + Command + ".");
                             }
                             catch (Exception X)
                             {
-                                Write("Unable to execute command --> " + Command + ".");
-                                Console.WriteLine(X.ToString());
+                                Red("Unable to execute command --> " + Command + ".");
+                                DEBUG(X.ToString());
                             }
                             break;
 
                         default:
-                            Write("Invalid command --> " + Command + ".");
+                            Red("Invalid command --> " + Command + ".");
                             break;
                     }
                     break;
