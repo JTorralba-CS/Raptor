@@ -68,10 +68,8 @@ namespace HelloWorld
 
         private void Hello()
         {
-            Write("Hello " + Environment.UserName.ToUpper() + "!");
+            Write("Hello " + Environment.UserName.ToUpper() + ".");
         }
-
-        
 
         private void DEBUG(String Text)
         {
@@ -93,11 +91,11 @@ namespace HelloWorld
             try
             {
                 Wrapper.Initialize();
-                Green("Initialized wrapper class.");
+                Green("Wrapper class intialized.");
             }
             catch (Exception X)
             {
-                Red("Unable to initialize wrapper class.");
+                Red("Wrapper class could not be intialized.");
                 DEBUG(X.ToString());
             }
         }
@@ -105,6 +103,7 @@ namespace HelloWorld
         private void ComboBox_KeyDown(object Sender, KeyEventArgs E)
         {
             String Command;
+            Boolean Command_Valid = false;
 
             var ComboBox = Sender as ComboBox;
             TextBox ComboBox_TextBox = ComboBox.Template.FindName("PART_EditableTextBox", ComboBox) as TextBox;
@@ -115,8 +114,6 @@ namespace HelloWorld
 
                     Command = ComboBox_TextBox.Text.ToUpper();
 
-                    ComboBox_List.Add(Command);
-                    ComboBox.Items.Refresh();
                     ComboBox_TextBox.Text = "";
                     ComboBox.SelectedIndex = -1;
 
@@ -126,55 +123,11 @@ namespace HelloWorld
                             try
                             {
                                 Wrapper.ExecuteCommand("clsAction|ActivateHelp||");
-                                Green("Executed command --> " + Command + ".");
+                                Command_Valid = true;
                             }
                             catch (Exception X)
                             {
-                                Red("Unable to execute command --> " + Command + ".");
-                                DEBUG(X.ToString());
-                            }
-                            break;
-
-                        case "RED":
-                            try
-                            {
-                                Red("RED");
-                            }
-                            catch (Exception X)
-                            {
-                                DEBUG(X.ToString());
-                            }
-                            break;
-
-                        case "GREEN":
-                            try
-                            {
-                                Green("GREEN");
-                            }
-                            catch (Exception X)
-                            {
-                                DEBUG(X.ToString());
-                            }
-                            break;
-
-                        case "BLUE":
-                            try
-                            {
-                                Blue("BLUE");
-                            }
-                            catch (Exception X)
-                            {
-                                DEBUG(X.ToString());
-                            }
-                            break;
-
-                        case "HELLO":
-                            try
-                            {
-                                Hello();
-                            }
-                            catch (Exception X)
-                            {
+                                Red("Unable to launch HELP module.");
                                 DEBUG(X.ToString());
                             }
                             break;
@@ -183,23 +136,50 @@ namespace HelloWorld
                             try
                             {
                                 Application.Current.Shutdown();
-                                Green("Executed command --> " + Command + ".");
                             }
                             catch (Exception X)
                             {
-                                Red("Unable to execute command --> " + Command + ".");
                                 DEBUG(X.ToString());
                             }
                             break;
 
-                        default:
-                            Red("Invalid command --> " + Command + ".");
+                        case "RED":
+                            Red("RED.");
+                            Command_Valid = true;
                             break;
+
+                        case "GREEN":
+                            Green("GREEN.");
+                            Command_Valid = true;
+                            break;
+
+                        case "BLUE":
+                            Blue("BLUE.");
+                            Command_Valid = true;
+                            break;
+
+                        case "HELLO":
+                            Hello();
+                            Command_Valid = true;
+                            break;
+
+                        default:
+                            Red("Invalid command (" + Command + ").");
+                            break;
+                    }
+
+                    if (Command_Valid)
+                    {
+                        if (!ComboBox.Items.Contains(Command))
+                        {
+                            ComboBox_List.Add(Command);
+                            ComboBox.Items.Refresh();
+                        }
                     }
                     break;
 
                 default:
-                    break;
+                    break;;
             }
         }
     }
