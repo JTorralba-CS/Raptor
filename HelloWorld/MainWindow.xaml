@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HelloWorld"
         mc:Ignorable="d"
-        Title="HelloWorld 1.0" Height="198" Width="653" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Disabled" ResizeMode="CanResizeWithGrip" WindowStartupLocation="CenterScreen" MinWidth="653" MinHeight="198">
+        Title="HelloWorld 1.00" Height="198" Width="653" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Disabled" ResizeMode="CanResizeWithGrip" WindowStartupLocation="CenterScreen" MinWidth="653" MinHeight="198">
     <Grid x:Name="Grid" ScrollViewer.VerticalScrollBarVisibility="Disabled">
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -13,7 +13,7 @@
                 <GradientStop Color="White"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <RichTextBox x:Name="RichTextBox" Margin="4,0,4,40" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible" IsReadOnly="True" BorderThickness="1" Padding="4" FontSize="14"/>
+        <RichTextBox x:Name="RichTextBox" Margin="4,0,4,40" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Hidden" IsReadOnly="True" BorderThickness="1" Padding="4" FontSize="14"/>
         <ComboBox x:Name="ComboBox" Margin="4,0,4,4" VerticalAlignment="Bottom" VerticalContentAlignment="Center" Padding="4" IsEditable="True" Height="32" FontSize="14" Loaded="ComboBox_Loaded" KeyDown="ComboBox_KeyDown"/>
 
     </Grid>
