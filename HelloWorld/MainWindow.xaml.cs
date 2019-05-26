@@ -173,6 +173,7 @@ namespace HelloWorld
                         if (!ComboBox.Items.Contains(Command))
                         {
                             ComboBox_List.Add(Command);
+                            ComboBox_List.Sort();
                             ComboBox.Items.Refresh();
                         }
                     }
